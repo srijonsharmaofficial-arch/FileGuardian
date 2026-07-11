@@ -1,0 +1,124 @@
+﻿<Window x:Class="FileGuardian.OrganizerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Smart Organizer &amp; Duplicate Finder" Height="750" Width="750"
+        Icon="/Assets/AppIcon.ico"
+        Background="{StaticResource BackgroundBrush}">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <Border Width="6" Height="40" Background="{StaticResource PrimaryGreenBrush}" CornerRadius="3" Margin="0,0,15,0"/>
+                <StackPanel>
+                    <TextBlock Text="Smart Organizer &amp; Duplicate Finder"
+                               FontSize="26" FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryGreenBrush}"/>
+                    <TextBlock Text="Organize files by type and find duplicate copies"
+                               FontSize="13"
+                               Foreground="{StaticResource TextBrush}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Button Grid.Column="1"
+                    x:Name="BackButton"
+                    Content="← Back"
+                    Width="100" Height="40"
+                    Style="{StaticResource ClassicButtonStyle}"
+                    VerticalAlignment="Top"
+                    Click="BackButton_Click"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1"
+                      Style="{StaticResource ThemedScrollViewerStyle}"
+                      VerticalScrollBarVisibility="Auto">
+            <Border Style="{StaticResource CardBorderStyle}" VerticalAlignment="Top">
+                <StackPanel>
+
+                    <TextBlock Text="Select a folder to organize" Style="{StaticResource SectionLabelStyle}"/>
+                    <Grid Margin="0,0,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="SelectedPathTextBox"
+                             Grid.Column="0"
+                             Style="{StaticResource ModernTextBoxStyle}"
+                             IsReadOnly="True"
+                             Text="No folder selected"
+                             Margin="0,0,10,0"/>
+                        <Button x:Name="BrowseFolderButton"
+                            Grid.Column="1"
+                            Content="Browse Folder..."
+                            Width="140" Height="40"
+                            Style="{StaticResource ClassicButtonStyle}"
+                            Click="BrowseFolderButton_Click"/>
+                    </Grid>
+
+                    <Separator Margin="0,0,0,20" Background="{StaticResource BorderGrayBrush}"/>
+
+                    <Grid Margin="0,0,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Files Found" Style="{StaticResource SectionLabelStyle}"/>
+                            <Border BorderBrush="{StaticResource BorderGrayBrush}" BorderThickness="1.5" CornerRadius="5" Height="160">
+                                <ListBox x:Name="FilesListBox" BorderThickness="0" Background="Transparent"/>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="File Types" Style="{StaticResource SectionLabelStyle}"/>
+                            <Border BorderBrush="{StaticResource BorderGrayBrush}" BorderThickness="1.5" CornerRadius="5" Height="160">
+                                <ListBox x:Name="FileTypesListBox" BorderThickness="0" Background="Transparent"/>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+
+                    <TextBlock Text="If we missed any, attach them here (choose multiple):"
+                           FontSize="13"
+                           Foreground="{StaticResource TextBrush}"
+                           Margin="0,0,0,10"/>
+                    <Button x:Name="AttachMoreFilesButton"
+                        Content="Attach More Files..."
+                        Width="200" Height="40"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource ClassicButtonStyle}"
+                        Margin="0,0,0,20"
+                        Click="AttachMoreFilesButton_Click"/>
+
+                    <Separator Margin="0,0,0,20" Background="{StaticResource BorderGrayBrush}"/>
+
+                    <Button x:Name="OrganizeFilesButton"
+                        Content="Organize &amp; Remove Duplicates"
+                        Width="260" Height="40"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource ClassicButtonStyle}"
+                        Margin="0,0,0,15"
+                        IsEnabled="False"
+                        Click="OrganizeFilesButton_Click"/>
+
+                    <TextBlock x:Name="OrganizeStatusText"
+                           Text=""
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           TextWrapping="Wrap"
+                           Foreground="{StaticResource PrimaryGreenBrush}"/>
+
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</Window>

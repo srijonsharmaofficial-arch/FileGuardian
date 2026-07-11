@@ -1,0 +1,50 @@
+﻿<Window x:Class="FileGuardian.ConfirmDialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FileGuardian" SizeToContent="Height" Width="420"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Icon="/Assets/AppIcon.ico"
+        Background="{StaticResource BackgroundBrush}">
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,15">
+            <Border Width="36" Height="36" CornerRadius="18" Background="{StaticResource PrimaryGreenBrush}">
+                <TextBlock Text="?" FontSize="18" FontWeight="Bold" Foreground="White"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock x:Name="TitleText"
+                       Text="Confirm"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="{StaticResource PrimaryGreenBrush}"
+                       VerticalAlignment="Center"
+                       Margin="12,0,0,0"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="1"
+                   x:Name="MessageText"
+                   TextWrapping="Wrap"
+                   FontSize="14"
+                   Foreground="{StaticResource TextBrush}"
+                   Margin="0,0,0,20"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="NoButton"
+                    Content="No"
+                    Width="90" Height="38"
+                    Style="{StaticResource ClassicButtonStyle}"
+                    Margin="0,0,10,0"
+                    Click="NoButton_Click"/>
+            <Button x:Name="YesButton"
+                    Content="Yes"
+                    Width="90" Height="38"
+                    Style="{StaticResource ClassicButtonStyle}"
+                    Click="YesButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

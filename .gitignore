@@ -1,0 +1,23 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# User files
+*.user
+*.suo
+
+# Logs
+*.log
+
+# NuGet
+packages/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Installer
+Installer/
+Output/
+*.iss

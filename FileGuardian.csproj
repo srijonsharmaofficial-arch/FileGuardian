@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+	<ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ApplicationDefinition Remove="App.xaml" />
+		<None Remove="Assets\AppIcon.ico" />
+		<Page Include="App.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Installer\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Assets\AppIcon.ico" />
+	</ItemGroup>
+
+</Project>
